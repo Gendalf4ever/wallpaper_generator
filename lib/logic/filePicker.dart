@@ -1,24 +1,19 @@
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 
 class Filepicker {
-  // txt selection
-  Future<String?> pickTxtFile() async { 
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['txt'],
+  /// Only txt files selection
+  static Future<String?> pickTxtFile() async {
+    const XTypeGroup typeGroup = XTypeGroup(
+      label: 'Text files',
+      extensions: ['txt'],
     );
-    if (result != null && result.files.single.path != null) {
-      return result.files.single.path;
-    }
-    return null;
+    final XFile? file = await openFile(acceptedTypeGroups: [typeGroup]);
+    return file?.path;
   }
 
-  // folder selection
-  Future<String?> pickImagesFolder() async {
-    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
-    if (selectedDirectory != null) {
-      return selectedDirectory;
-    }
-    return null;
+  ///Images selection
+  static Future<String?> pickImagesFolder() async {
+    final String? directoryPath = await getDirectoryPath();
+    return directoryPath;
   }
 }

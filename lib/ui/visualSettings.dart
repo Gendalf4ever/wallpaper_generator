@@ -28,10 +28,10 @@ class VisualSettings {
     useMaterial3: true,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: const Color(0xFF121212),
-    primaryColor: Colors.blueAccent,
+    primaryColor: Colors.cyan,
     colorScheme: ColorScheme.dark(
-      primary: Colors.blueAccent.shade700,
-      secondary: Colors.blue,
+      primary: Colors.cyanAccent.shade700,
+      secondary: Colors.cyan,
       surface: const Color(0xFF1E1E1E),
       onSurface: Colors.white70,
     ),
